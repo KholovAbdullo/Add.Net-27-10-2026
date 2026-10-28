@@ -11,8 +11,7 @@ public class BooksRepository:IBookRepository
     {
         using var Connection=Database.Connection();
         Connection.Open();
-        var query = @"INSERT INTO Books
-            (title, publishedyear, totalcopies, author_id, genre_id) values(@Title, @Publishedyear, @Totalcopies, @authorId, @genreId)";
+        var query = @"insert into Books(title, publishedyear, totalcopies, author_id, genre_id) values(@Title, @Publishedyear, @Totalcopies, @authorId, @genreId)";
         Connection.Execute(query, new{book.Title,book.Publishedyear,book.Totalcopies,book.authorId,book.genreId});
     }
 
@@ -24,6 +23,26 @@ public class BooksRepository:IBookRepository
         Connection.Execute(query,new{id});
     }
 
+    public int GetAmountByGenre(int genreId)
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select count(*) from Books where genre_id=@genreId";
+        var amount=conn.QuerySingle<int>(query,new{genreId});
+        return amount;
+
+    }
+
+    public int GetAmountByPublishedYear(int year)
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select count(*) from Books where publishedyear=@year";
+        var yeare=conn.QuerySingle<int>(query,new{year});
+        return yeare;
+    }
+
+
     public Books GetBook(int id)
     {
        using var Connection=Database.Connection();
@@ -32,6 +51,16 @@ public class BooksRepository:IBookRepository
        var book=Connection.QuerySingle<Books>(query,new{id});
        return book;
     }
+
+    public int GetBookAmount()
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select count(*) from Books";
+        var amount=conn.QuerySingle<int>(query);
+        return amount;
+    }
+
 
     public List<Books> GetBooks()
     {

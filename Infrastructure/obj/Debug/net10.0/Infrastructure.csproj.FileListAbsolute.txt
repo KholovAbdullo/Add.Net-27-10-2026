@@ -13,3 +13,4 @@ C:\Users\user\Desktop\Net1moh\Add.Net\haftai4\Day1\Infrastructure\obj\Debug\net1
 C:\Users\user\Desktop\Net1moh\Add.Net\haftai4\Day1\Infrastructure\obj\Debug\net10.0\refint\Infrastructure.dll
 C:\Users\user\Desktop\Net1moh\Add.Net\haftai4\Day1\Infrastructure\obj\Debug\net10.0\Infrastructure.pdb
 C:\Users\user\Desktop\Net1moh\Add.Net\haftai4\Day1\Infrastructure\obj\Debug\net10.0\ref\Infrastructure.dll
+C:\Users\user\Desktop\Net1moh\Add.Net\haftai4\Day1\Infrastructure\obj\Debug\net10.0\Infrastructure.sourcelink.json

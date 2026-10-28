@@ -40,6 +40,34 @@ public class AuthorRepository : IAuthorRepository
         return query.ToList();
     }
 
+    public int GetAuthorsAmount()
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select count(*) from Author";
+        var amount=conn.QuerySingle<int>(query);
+        return amount;
+    }
+
+    public int GetMaxPublishedYearByAuthor(int authorId)
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select max(publishedyear) from Books where auhtor_id=@authorId";
+        var max=conn.QuerySingle<int>(query,new{authorId});
+        return max;
+    }
+
+    public int GetMinPublishedYearByAuthor(int authorId)
+    {
+        using var conn=Database.Connection();
+        conn.Open();
+        var query="select min(publishedyear) from Books where auhtor_id=@authorId";
+        var min=conn.QuerySingle<int>(query,new{authorId});
+        return min;
+    }
+
+
     public void UpdateAuthor(Author author)
     {
         using var conn=Database.Connection();
