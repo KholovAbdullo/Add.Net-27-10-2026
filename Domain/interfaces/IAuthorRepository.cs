@@ -4,12 +4,12 @@ namespace Domain.interfaces;
 
 public interface IAuthorRepository
 {
-    void AddAuthor(Author author);
-    void UpdateAuthor(Author author);
-    void DeleteAuthor(int id);
-    Author GetAuthor(int id);
-    List<Author> GetAuthors();
-    int GetAuthorsAmount();
-    int GetMinPublishedYearByAuthor(int authorId);
-    int GetMaxPublishedYearByAuthor(int authorId);
+    Task AddAuthor(Author author);
+    Task UpdateAuthor(Author author);
+    Task DeleteAuthor(int id);
+    Task<Author> GetAuthor(int id);
+    Task<List<Author>> GetAuthors();
+    Task<int> GetAuthorsAmount();
+    Task<int> GetMinPublishedYearByAuthor(int authorId);
+    Task<int> GetMaxPublishedYearByAuthor(int authorId);
 }

@@ -4,15 +4,15 @@ namespace Domain.interfaces;
 
 public interface IBookRepository
 {
-        void AddBook(Books book);
-        void UpdateBook(Books book);
-        void DeleteBook(int id);
-        Books GetBook(int id);
-        List<Books> GetBooks();
-        List<Books> GetBooksByAuthor(string authorName);
-        List<Books> GetBooksByGenre(string genreName);
-        int GetBookAmount();
-        int GetAmountByPublishedYear(int year);
-        int GetAmountByGenre(int genreId);
+    Task AddBook(Books book);
+    Task UpdateBook(Books book);
+    Task DeleteBook(int id);
+    Task<Books> GetBook(int id);
+    Task<List<Books>> GetBooks();
+    Task<List<Books>> GetBooksByAuthor(string authorName);
+    Task<List<Books>> GetBooksByGenre(string genreName);
+    Task<int> GetBookAmount();
+    Task<int> GetAmountByPublishedYear(int year);
+    Task<int> GetAmountByGenre(int genreId);
 
 }
